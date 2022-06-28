@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @user %>
+<p>Followers:</p>
+<ul> <%@user.followers.each do |follower|%>
+  <li><%=follower.user_name%></li>
+  <%end%>
+</ul>
+
+
+<p>Following:</p>
+<ul> <%@user.followeds.each do |followeds|%>
+  <li><%=followeds.user_name%></li>
+  <%end%>
+</ul>
+<div>
+  <%= link_to "Edit this user", edit_user_path(@user) %> |
+  <%= link_to "Back to users", users_path %>
+
+  <%= button_to "Destroy this user", @user, method: :delete %>
+</div>
